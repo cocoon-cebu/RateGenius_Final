@@ -1,0 +1,15 @@
+# Render service configuration for backend
+services:
+  - type: web
+    name: rategenius-backend
+    env: docker
+    dockerfilePath: backend/Dockerfile
+    plan: starter
+    autoDeploy: true
+    envVars:
+      - key: PORT
+        value: '5000'
+      - key: ALLOWED_ORIGIN
+        value: 'https://rategenius.vercel.app'
+      - key: GOOGLE_PLACES_API_KEY
+        fromDatabase: null
